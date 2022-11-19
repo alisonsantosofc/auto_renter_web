@@ -2,19 +2,22 @@ import styled from 'styled-components';
 
 export const Container = styled.main`
   width: 1124px;
+  height: calc(100vh - 34px);
   margin: 0 auto;
-  padding-top: 2rem;
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   section {
-    max-width: 80%;
+    margin-top: 1rem;
 
     h1 {
       font-size: 4rem;
     }
 
     > p {
+      max-width: 90%;
       margin-top: 1rem;
       font-size: 1.5rem;
       font-weight: 500;
@@ -46,6 +49,10 @@ export const Container = styled.main`
         &:last-child {
           display: flex;
           align-items: center;
+          background: var(--gray-800);
+          padding: 1rem;
+          border-radius: 0.25rem;
+          box-shadow: 0px -1px 10px 3px rgba(0, 0, 0, 0.18);
 
           svg {
             padding: 0.2rem;
@@ -62,7 +69,7 @@ export const Container = styled.main`
 
             span {
               &:first-child {
-                font-size: 1.5rem;
+                font-size: 2rem;
                 font-weight: 600;
               }
             }
@@ -72,7 +79,22 @@ export const Container = styled.main`
     }
   }
 
-  img {
-    margin-top: 4rem;
+  > div {
+    position: relative;
+
+    img {
+      margin-top: 3.2rem;
+    }
+
+    .effect-bg {
+      z-index: -1;
+      position: absolute;
+      left: -45%;
+      bottom: -20%;
+      box-shadow: inset 0px 5px 10px 1px rgba(0, 0, 0, 0.48);
+      width: 100vw;
+      height: 200px;
+      background: var(--gray-700);
+    }
   }
 `;

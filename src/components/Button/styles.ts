@@ -34,10 +34,10 @@ export const Container = styled.button<ContainerProps>`
   font-weight: 500;
   background: ${(props) => getBgColor(props.typeButton)};
   color: var(--gray-100);
-  transition: filter 0.2s;
+  transition: box-shadow ease-in-out 0.2s;
   cursor: pointer;
 
   &:hover {
-    filter: brightness(1.1);
+    box-shadow: 0px -1px 10px 3px ${(props) => getBgColor(props.typeButton)};
   }
 `;

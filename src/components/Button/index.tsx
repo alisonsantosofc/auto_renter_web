@@ -8,9 +8,9 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   size?: 'small' | 'large';
 }
 
-export function Button({children, typeButton, size}: ButtonProps) {
+export function Button({children, typeButton, size, ...props}: ButtonProps) {
   return (
-    <Container type="button" typeButton={typeButton} size={size}>
+    <Container type="button" typeButton={typeButton} size={size} {...props}>
       {children}
     </Container>
   );

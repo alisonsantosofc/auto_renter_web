@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AnimatePresence } from 'framer-motion'
 
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -19,7 +20,15 @@ export default function App({ Component, pageProps }: AppProps) {
         position="top-center"
       />
       <Header />
-      <Component {...pageProps} />
+      
+      <AnimatePresence
+        exitBeforeEnter
+        initial={false}
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        <Component {...pageProps} />
+      </AnimatePresence>
+
       <Footer />
     </>
   );
