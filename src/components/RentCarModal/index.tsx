@@ -31,20 +31,20 @@ export function RentCarModal({ car, isOpen, onRequestClose }: RentCarModalProps)
       className="react-modal-content"
     >
       <Container>
-        <X weight="bold" onClick={() => onRequestClose()}/>
+        <X weight="bold" onClick={() => onRequestClose()} />
 
-        <Image
-          src={require(`../../../public/cars/${car.id}.png`)}
-          alt={car.model}
-          width={600}
-          height={300}
-        />
+        {car.id && (
+          <Image
+            src={require(`../../../public/cars/${car.id}.png`)}
+            alt={car.model}
+            width={600}
+            height={300}
+          />
+        )}
 
         <div className="brand-container">
-          <div className="name-container">
-            <h2>{car.model}</h2>
-            <span>{car.brand}</span>
-          </div>
+          <h2>{car.model}</h2>
+          <span>{car.brand}</span>
         </div>
 
         <div className="info-container">

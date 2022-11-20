@@ -14,13 +14,18 @@ export const Container = styled.div`
   }
 
   .brand-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     margin-top: 1rem;
 
     h2 {
+      z-index: 2;
       font-size: 3rem;
     }
 
     span {
+      z-index: 2;
       font-size: 1.5rem;
     }
   }

@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
     --main-color: #fa4e3f;
 
     --gray-100: #e9e9e9;
+    --gray-200: #C1C1C1;
     --gray-400: #525252;
     --gray-500: #383838;
     --gray-700: #282828;
@@ -25,18 +26,17 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Inter', sans-serif;
 
     &::-webkit-scrollbar {
-      width: 22px;
+      width: 12px;
+      
     }
 
     &::-webkit-scrollbar-track {
       background: var(--gray-400);
-      border-radius: 4px;
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: var(--gray-700);
-      border-radius: 8px;
-      border: 6px solid var(--gray-400);
+      background: var(--main-color);
+      height: 2px;
     }
   }
 
@@ -69,7 +69,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .react-modal-overlay {
-    z-index: 99;
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -84,7 +83,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .react-toastfy-container {
-    width: 25%;
+    width: 30%;
 
     @media (max-width: 1080px) {
       width: 100%;
@@ -95,9 +94,15 @@ export const GlobalStyles = createGlobalStyle`
     font: 500 1rem "Inter", sans-serif;
     background: var(--gray-700);
     width: 100%;
+    color: var(--gray-100);
+    padding: 0;
 
-    svg {
-      color: var(--main-color);
+    p {
+      color: var(--gray-200);
     }
+  }
+
+  .hidden {
+    display: none;
   }
 `;

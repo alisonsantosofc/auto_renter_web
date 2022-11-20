@@ -6,7 +6,7 @@ export default function RentPage() {
   return (
     <>
       <Head>
-        <title>auto Renter | alugar</title>
+        <title>Auto Renter | Alugar Carro</title>
       </Head>
       <Rent />
     </>

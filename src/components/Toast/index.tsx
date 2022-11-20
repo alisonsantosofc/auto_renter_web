@@ -1,9 +1,4 @@
-import {
-  HiInformationCircle,
-  HiBadgeCheck,
-  HiExclamation,
-  HiEmojiSad,
-} from 'react-icons/hi';
+import { Smiley, SmileyWink, SmileyNervous, SmileySad } from 'phosphor-react';
 
 import { Container } from './styles';
 
@@ -17,19 +12,19 @@ export function Toast({ title, message, type }: ToastProps) {
   function setIcon() {
     switch (type) {
       case 'info':
-        return <HiInformationCircle color="#3498db" />;
+        return <Smiley color="#4da5e0" />;
         break;
       case 'success':
-        return <HiBadgeCheck color="#07bc0c" />;
+        return <SmileyWink color="#59ae54" />;
         break;
       case 'warning':
-        return <HiExclamation color="#f1c40f" />;
+        return <SmileyNervous color="#e99a39" />;
         break;
       case 'error':
-        return <HiEmojiSad color="#e74c3c" />;
+        return <SmileySad color="#e34747" />;
         break;
       default:
-        return <HiExclamation color="#f1c40f" />;
+        return <Smiley color="#4da5e0" />;
         break;
     }
   }

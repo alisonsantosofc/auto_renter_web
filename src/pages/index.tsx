@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>auto Renter</title>
+        <title>Auto Renter</title>
       </Head>
       <Dashboard />
     </>

@@ -1,16 +1,16 @@
-import { KeyboardEvent, useState } from 'react';
-import Image from 'next/image';
-import { MagnifyingGlass } from 'phosphor-react';
-import ReactModal from 'react-modal';
+import { KeyboardEvent, useEffect, useState } from 'react';
+import { ArrowArcRight } from 'phosphor-react';
 
 import Layout from '../../components/Layout';
-import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
 import { Container } from './styles';
 
-import { formatAmount } from '../../utils/format';
 import { RentCarModal } from '../../components/RentCarModal';
+import { CarCard } from '../../components/CarCard';
+import { toast } from 'react-toastify';
+import { Toast } from '../../components/Toast';
+import { Loader } from '../../components/Loader';
 
 export interface Car {
   id: string;
@@ -22,6 +22,10 @@ export interface Car {
   maxDistance: number;
 }
 
+interface RequestState {
+  request: 'pending' | 'success' | 'failed';
+}
+
 export function Rent() {
   const [cars, setCars] = useState<Car[]>([]);
   const [maxDuration, setMaxDuration] = useState(0);
@@ -31,27 +35,40 @@ export function Rent() {
   const [carSeletedToRent, setCarSeletedToRent] = useState<Car>({} as Car);
   const [isOpenModal, setIsOpenModal] = useState(false);
 
+  const [monitoringRequest, setMonitoringRequest] = useState<RequestState>({} as RequestState);
+
   async function handleFindAvailableCars() {
+    setCars([]);
+
     try {
       const params = new URLSearchParams({
-        maxDuration: String(maxDuration),
-        maxDistance: String(maxDistance),
+        maxDuration: maxDuration ? String(maxDuration) : '',
+        maxDistance: maxDistance ? String(maxDistance) : '',
       });
+
+      setMonitoringRequest({ request: 'pending' });
 
       const response = await (await fetch(`http://localhost:3333/cars?` + params)).json();
 
       setCars(response.cars);
       setIsResponseMessageActive(true);
 
-      console.log(cars);
-    } catch (error) {
-      console.log({ msg: 'Erro na requisição!', error });
+      setMonitoringRequest({ request: 'success' });
+    } catch {
+      setMonitoringRequest({ request: 'failed' });
+
+      toast.error(
+        <Toast
+          type="error"
+          title="Erro no Servidor"
+          message="Não foi possível conectar o computador ao servidor, por favor tente novamente mais tarde."
+        />
+      );
     }
   }
 
   function handleRentCar(car: Car) {
     setCarSeletedToRent(car);
-
     setIsOpenModal(true);
   }
 
@@ -88,73 +105,38 @@ export function Rent() {
               />
             </label>
 
-            <MagnifyingGlass weight="bold" onClick={() => handleFindAvailableCars()} />
+            <ArrowArcRight weight="bold" onClick={() => handleFindAvailableCars()} />
           </form>
         </div>
 
-        {isResponseMessageActive &&
-          (cars.length ? (
+        {monitoringRequest.request === 'success' || monitoringRequest.request === 'failed' ? (
+          cars.length ? (
             <h4>
-              Encontramos para você: <span>{cars.length}</span> carro
-              {cars.length > 1 ? 's' : ''}
+              <span>{cars.length}</span> carro
+              {cars.length > 1 ? 's estão disponíveis ' : ' está disponível '} para alugar
             </h4>
           ) : (
             <h4>Não encontramos nenhum carro com esses critérios :(</h4>
-          ))}
+          )
+        ) : (
+          ''
+        )}
 
         <ul>
           {cars.map((car) => (
-            <li key={car.id}>
-              <Image
-                src={require(`../../../public/cars/${car.id}.png`)}
-                alt={car.model}
-                width={300}
-                height={150}
-              />
-
-              <div className="info-container">
-                <p>
-                  Preço por dia:{' '}
-                  <span>
-                    {formatAmount({
-                      amount: car.pricePerDay,
-                      currency: 'BRL',
-                      lang: 'pt-br',
-                    })}
-                  </span>
-                </p>
-
-                <p>
-                  Preço por km:{' '}
-                  <span>
-                    {formatAmount({
-                      amount: car.pricePerKm,
-                      currency: 'BRL',
-                      lang: 'pt-br',
-                    })}
-                  </span>
-                </p>
-              </div>
-
-              <div className="rent-container">
-                <p>
-                  <strong>{car.model}</strong>
-                  <span>{car.brand}</span>
-                </p>
-
-                <Button onClick={() => handleRentCar(car)}>Alugar</Button>
-              </div>
-            </li>
+            <CarCard car={car} handleRentCar={handleRentCar} key={car.id} />
           ))}
         </ul>
 
-        {carSeletedToRent && (
-          <RentCarModal
-            car={carSeletedToRent}
-            isOpen={isOpenModal}
-            onRequestClose={() => setIsOpenModal(!isOpenModal)}
-          />
+        {monitoringRequest.request === 'pending' && (
+          <Loader isActive={monitoringRequest.request === 'pending' ? true : false} />
         )}
+
+        <RentCarModal
+          car={carSeletedToRent}
+          isOpen={isOpenModal}
+          onRequestClose={() => setIsOpenModal(!isOpenModal)}
+        />
       </Container>
     </Layout>
   );
