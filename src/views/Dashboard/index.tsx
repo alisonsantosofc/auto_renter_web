@@ -4,7 +4,7 @@ import { Check } from 'phosphor-react';
 
 import { Container } from './styles';
 
-import slider from '../../assets/slider.png';
+import slider from '../../assets/images/slider.png';
 import { Button } from '../../components/Button';
 import React from 'react';
 import Layout from '../../components/Layout';

@@ -68,6 +68,21 @@ export const GlobalStyles = createGlobalStyle`
     -moz-appearance: textfield;
   }
 
+  .react-modal-overlay {
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+  }
+
   .react-toastfy-container {
     width: 25%;
 

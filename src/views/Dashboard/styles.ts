@@ -80,8 +80,6 @@ export const Container = styled.main`
   }
 
   > div {
-    position: relative;
-
     img {
       margin-top: 3.2rem;
     }
@@ -89,10 +87,10 @@ export const Container = styled.main`
     .effect-bg {
       z-index: -1;
       position: absolute;
-      left: -45%;
-      bottom: -20%;
+      left: 0;
+      bottom: 0;
       box-shadow: inset 0px 5px 10px 1px rgba(0, 0, 0, 0.48);
-      width: 100vw;
+      width: calc(100vw + 100px);
       height: 200px;
       background: var(--gray-700);
     }
