@@ -5,13 +5,13 @@ export const Container = styled.header`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 60px;
   background: var(--gray-800);
   box-shadow: 0px -1px 10px 3px rgba(0, 0, 0, 0.28);
 
   div {
-    max-width: 1124px;
+    max-width: 1144px;
     height: 100%;
     margin: 0 auto;
     flex: 1;
@@ -57,5 +57,13 @@ export const Container = styled.header`
         }
       }
     }
+  }
+
+  @media (max-width: 1144px) {
+    padding: 0 2rem;
+  }
+
+  @media (max-width: 778px) {
+    padding: 0 1rem;
   }
 `;

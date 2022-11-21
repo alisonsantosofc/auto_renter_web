@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
-  width: 1124px;
+  width: 1144px;
   height: calc(100vh - 34px);
   margin: 0 auto;
   padding-top: 60px;
@@ -94,5 +94,13 @@ export const Container = styled.main`
       height: 200px;
       background: var(--gray-700);
     }
+  }
+
+  @media (max-width: 1144px) {
+    padding: 60px 2rem 0 2rem;
+  }
+
+  @media (max-width: 778px) {
+    padding: 60px 1rem 0 1rem;
   }
 `;

@@ -41,11 +41,13 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html {
+    width: 100vw;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
   body {
+    width: 100vw;
     background: var(--gray-900);
     color: var(--gray-100);
   }

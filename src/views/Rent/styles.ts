@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
-  width: 1124px;
+  width: 1144px;
   min-height: calc(100vh - 64px);
   margin: 0 auto;
   padding-top: 60px;
@@ -9,6 +9,7 @@ export const Container = styled.main`
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
+  position: relative;
 
   > div {
     margin-top: 1rem;
@@ -36,12 +37,12 @@ export const Container = styled.main`
           margin-left: 2rem;
         }
 
-        &:first-child {
-          width: 80px;
+        &:nth-child(1) {
+          width: 70px;
         }
 
-        &:last-child {
-          width: 150px;
+        &:nth-child(2) {
+          max-width: 140px;
         }
 
         input {
@@ -63,6 +64,18 @@ export const Container = styled.main`
           background: var(--gray-700);
           box-shadow: 0px -1px 10px 3px rgba(0, 0, 0, 0.28);
         }
+      }
+    }
+
+    @media (max-width: 778px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 496px) {
+      h2 {
+        font-size: 1.2rem;
       }
     }
   }
@@ -88,18 +101,65 @@ export const Container = styled.main`
       font-size: 1.8rem;
       font-weight: 700;
     }
+
+    @media (max-width: 496px) {
+      font-size: 1rem;
+
+      span {
+      font-size: 1.5rem;
+
+    }
+    }
   }
 
-  ul {
-    margin-top: 1rem;
+  .cars-list-container {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
+
+    ul {
+      margin-top: 1rem;
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+
+      @media (max-width: 1144px) {
+        width: calc(100vw - 5rem);
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @media (max-width: 778px) {
+        width: calc(100vw - 3rem);
+        grid-template-columns: 1fr;
+
+        li {
+          img {
+            width: 400px;
+            height: 200px;
+          }
+        }
+      }
+
+      @media (max-width: 496px) {
+        li {
+          img {
+            width: 300px;
+            height: 150px;
+          }
+        }
+      }
+    }
   }
 
   .loader-content {
     width: 100%;
     min-height: 60vh;
+  }
+
+  @media (max-width: 1144px) {
+    padding: 60px 2rem 0 2rem;
+  }
+
+  @media (max-width: 778px) {
+    padding: 60px 1rem 0 1rem;
   }
 `;

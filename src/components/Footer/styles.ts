@@ -9,7 +9,27 @@ export const Container = styled.header`
   margin-top: -1rem;
 
   div {
-    max-width: 1124px;
+    max-width: 1144px;
     margin: 0 auto;
+  }
+
+  @media (max-width: 1144px) {
+    padding: 0 2rem;
+  }
+
+  @media (max-width: 778px) {
+    padding: 0 1rem;
+  }
+
+  @media (max-width: 596px) {
+    div {
+      display: flex;
+      justify-content: center;
+
+      p {
+        width: 80%;
+        text-align: center;
+      }
+    }
   }
 `;

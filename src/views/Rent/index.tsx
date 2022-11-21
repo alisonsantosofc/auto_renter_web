@@ -82,7 +82,7 @@ export function Rent() {
     <Layout>
       <Container>
         <div>
-          <h2></h2>
+          <h2>Encontre um carro para alugar</h2>
 
           <form>
             <label htmlFor="maxDuration">
@@ -116,17 +116,21 @@ export function Rent() {
               {cars.length > 1 ? 's estão disponíveis ' : ' está disponível '} para alugar
             </h4>
           ) : (
-            <h4 className="not-found"><SmileySad size={48} /> Não encontramos nenhum carro com esses critérios!</h4>
+            <h4 className="not-found">
+              <SmileySad size={48} /> Não encontramos nenhum carro com esses critérios!
+            </h4>
           )
         ) : (
           ''
         )}
 
-        <ul>
-          {cars.map((car) => (
-            <CarCard car={car} handleRentCar={handleRentCar} key={car.id} />
-          ))}
-        </ul>
+        <div className="cars-list-container">
+          <ul>
+            {cars.map((car) => (
+              <CarCard car={car} handleRentCar={handleRentCar} key={car.id} />
+            ))}
+          </ul>
+        </div>
 
         {monitoringRequest.request === 'pending' && (
           <Loader isActive={monitoringRequest.request === 'pending' ? true : false} />
