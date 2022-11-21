@@ -30,71 +30,67 @@ export const Container = styled.main`
     }
 
     > div {
-      max-width: calc(100vw - 4rem);
       display: flex;
       justify-content: space-between;
       margin-top: 5rem;
       margin-bottom: 2rem;
 
-      div {
-        &:first-child {
-          button {
-            font-size: 1.1rem;
+      .buttons-container {
+        button {
+          font-size: 1.1rem;
 
-            &:first-child {
-              background: var(--main-color);
-              margin-right: 1rem;
-            }
+          &:first-child {
+            background: var(--main-color);
+            margin-right: 1rem;
           }
         }
+      }
 
-        &:last-child {
+      .count-container {
+        display: flex;
+        align-items: center;
+        background: var(--gray-800);
+        padding: 1rem;
+        border-radius: 0.25rem;
+        box-shadow: 0px -1px 10px 3px rgba(0, 0, 0, 0.18);
+
+        svg {
+          padding: 0.2rem;
+          font-size: 3rem;
+          border-radius: 50%;
+          background: var(--green-500);
+        }
+
+        p {
           display: flex;
-          align-items: center;
-          background: var(--gray-800);
-          padding: 1rem;
-          border-radius: 0.25rem;
-          box-shadow: 0px -1px 10px 3px rgba(0, 0, 0, 0.18);
+          flex-direction: column;
+          margin-left: 1rem;
+          font-size: 1.2rem;
 
-          svg {
-            padding: 0.2rem;
-            font-size: 3rem;
-            border-radius: 50%;
-            background: var(--green-500);
-          }
-
-          p {
-            display: flex;
-            flex-direction: column;
-            margin-left: 1rem;
-            font-size: 1.2rem;
-
-            span {
-              &:first-child {
-                font-size: 2rem;
-                font-weight: 600;
-              }
+          span {
+            &:first-child {
+              font-size: 2rem;
+              font-weight: 600;
             }
           }
         }
       }
 
       @media (max-width: 1080px) {
-        div {
-          &:first-child {
-            display: flex;
-            flex-direction: column;
+        .buttons-container {
+          display: flex;
+          flex-direction: column;
 
-            button {
-              &:first-child {
-                margin-bottom: 1rem;
-              }
+          button {
+            &:first-child {
+              margin-bottom: 1rem;
             }
           }
         }
       }
 
       @media (max-width: 778px) {
+        width: 100%;
         margin-top: 2rem;
         margin-bottom: 16rem;
         display: flex;
@@ -102,13 +98,31 @@ export const Container = styled.main`
         justify-content: center;
         align-items: center;
 
-        div {
-          &:first-child {
+        .buttons-container {
+          width: 100%;
+          align-items: center;
+          flex-direction: row;
+          margin-top: 2rem;
+          gap: 1rem;
+
+          button {
             width: 100%;
-            align-items: center;
-            flex-direction: row;
-            margin-top: 2rem;
-            gap: 1rem;
+            font-size: 1rem;
+
+            &:first-child {
+              margin: 0;
+            }
+          }
+        }
+
+        .count-container {
+          margin-top: 2rem;
+          justify-content: center;
+        }
+
+        @media (max-width: 480px) {
+          .buttons-container {
+            flex-direction: column;
 
             button {
               width: 100%;
@@ -120,7 +134,7 @@ export const Container = styled.main`
             }
           }
 
-          &:last-child {
+          .count-container {
             margin-top: 2rem;
             justify-content: center;
           }
@@ -139,7 +153,7 @@ export const Container = styled.main`
 
       @media (max-width: 480px) {
         margin-top: 2rem;
-        margin-bottom: 6rem;
+        margin-bottom: 2rem;
       }
     }
 
@@ -154,6 +168,21 @@ export const Container = styled.main`
 
         > span {
           font-size: 1.5rem;
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      > p {
+        width: 100%;
+        font-size: 1rem;
+
+        > span {
+          font-size: 1.2rem;
         }
       }
     }

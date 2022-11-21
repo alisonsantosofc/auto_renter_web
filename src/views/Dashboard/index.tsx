@@ -31,14 +31,14 @@ export function Dashboard() {
           </p>
 
           <div>
-            <div>
+            <div className="buttons-container">
               <Button onClick={(e) => handleClick(e)}>
                 Alugar um carro agora
               </Button>
               <Button>Assinar Renter Club</Button>
             </div>
 
-            <div>
+            <div className="count-container">
               <Check weight="bold" />
 
               <p>

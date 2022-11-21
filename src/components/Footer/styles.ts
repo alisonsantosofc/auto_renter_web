@@ -27,6 +27,7 @@ export const Container = styled.header`
       justify-content: center;
 
       p {
+        font-size: 0.8rem;
         width: 80%;
         text-align: center;
       }
