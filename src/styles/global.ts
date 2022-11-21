@@ -41,15 +41,15 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    width: 100vw;
     -webkit-font-smoothing: antialiased;
+    max-width: 100vw;
     overflow-x: hidden;
   }
 
   body {
-    width: 100vw;
     background: var(--gray-900);
     color: var(--gray-100);
+    max-width: 100vw;
   }
 
   a {
