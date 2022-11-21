@@ -1,8 +1,8 @@
-# Auto Renter App
-
-
 <div align="center">
-  <div>    
+  <div>
+     <img src="https://i.ibb.co/Nn1NkHg/logodemo.png" width="600px" alt="demo" />
+     <img src="https://i.ibb.co/gR6djcm/demo1.png" width="600px" alt="demo" />
+     <img src="https://i.ibb.co/s2S1d2R/demo2.png" height="300px" alt="demo" />
   </div>
 </div>
 
@@ -26,7 +26,7 @@
 </div>
 <br>
 
-<p align="center"><a href="https://githubrepoexplorer.netlify.app/">Click here to access the deploy</a></p>
+<p align="center"><a href="https://autorenter.vercel.app/">Click here to access the deploy</a></p>
 
 <br>
 
@@ -42,13 +42,13 @@
 <div id="objective">
   <h1>Objective</h1>
   <p>
-    Develop an application to facilitate the purchase of digital games, using Redux to manage the states, SSR and SSG in Next.js and styles with Styled Components.
+    Develop an application to rent cars, using SSR and SSG in Next.js and styles with Styled Components.
   </p>
 </div>
 <br>
 
 <div id="starting">
-  <h1>Starting</h1>
+  <h1>Starting In Delelopment Enviroment</h1>
 
   *Clone the project and access the folder*
 
