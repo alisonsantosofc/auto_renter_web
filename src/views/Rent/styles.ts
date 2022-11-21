@@ -74,6 +74,15 @@ export const Container = styled.main`
     text-align: start;
     margin-top: 1rem;
 
+    &.not-found {
+      display: flex;
+      align-items: center;
+
+      > svg {
+        margin-right: 0.5rem;
+      }
+    }
+
     span {
       color: var(--main-color);
       font-size: 1.8rem;

@@ -1,5 +1,5 @@
 import { KeyboardEvent, useEffect, useState } from 'react';
-import { ArrowArcRight } from 'phosphor-react';
+import { ArrowArcRight, SmileySad } from 'phosphor-react';
 
 import Layout from '../../components/Layout';
 import { Input } from '../../components/Input';
@@ -82,7 +82,7 @@ export function Rent() {
     <Layout>
       <Container>
         <div>
-          <h2>Encontre um carro para alugar</h2>
+          <h2></h2>
 
           <form>
             <label htmlFor="maxDuration">
@@ -116,7 +116,7 @@ export function Rent() {
               {cars.length > 1 ? 's estão disponíveis ' : ' está disponível '} para alugar
             </h4>
           ) : (
-            <h4>Não encontramos nenhum carro com esses critérios :(</h4>
+            <h4 className="not-found"><SmileySad size={48} /> Não encontramos nenhum carro com esses critérios!</h4>
           )
         ) : (
           ''
