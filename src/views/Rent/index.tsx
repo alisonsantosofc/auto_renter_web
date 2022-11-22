@@ -48,7 +48,7 @@ export function Rent() {
 
       setMonitoringRequest({ request: 'pending' });
 
-      const response = await (await fetch(`${process.env.SERVER_URL}/cars?` + params)).json();
+      const response = await (await fetch(`https://auto-renter-server.herokuapp.com/cars?` + params)).json();
 
       setCars(response.cars);
       setIsResponseMessageActive(true);
