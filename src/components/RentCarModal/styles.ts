@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  max-width: 100%;
   position: relative;
   background: var(--gray-700);
   padding: 2rem;
+
+  img {
+    max-width: 100%;
+    max-heigth: 100%;
+  }
 
   > svg {
     position: absolute;
