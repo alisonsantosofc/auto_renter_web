@@ -48,20 +48,22 @@ export function Rent() {
 
       setMonitoringRequest({ request: 'pending' });
 
-      const response = await (await fetch(`${process.env.SERVER_URL}/cars?` + params)).json();
+      const response = await (await fetch(`http://localhost:3333/cars?` + params)).json();
 
       setCars(response.cars);
       setIsResponseMessageActive(true);
 
       setMonitoringRequest({ request: 'success' });
-    } catch {
+    } catch (err) {
       setMonitoringRequest({ request: 'failed' });
 
+      console.log(err);
+      
       toast.error(
         <Toast
           type="error"
           title="Erro no Servidor"
-          message="Não foi possível conectar o computador ao servidor, por favor tente novamente mais tarde."
+          message="Não foi possível conectar o dispositivo ao servidor, por favor tente novamente mais tarde."
         />
       );
     }
